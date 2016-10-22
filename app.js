@@ -30,6 +30,8 @@ pir.watch(function(err, value) {
     // Movement is detected
     if (value == 1) {
         console.log('Movement detected');
+        // Take a screenshot
+        cam.start();
     }
 });
 
