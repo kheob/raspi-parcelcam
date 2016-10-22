@@ -19,7 +19,7 @@ var cam = new RaspiCam({
 });
 
 // Static server
-// app.use('/static', express.static(__dirname + '/public'));
+app.use('/static', express.static(__dirname + '/public'));
 
 // Routes
 app.get('/latest', function(req, res) {
