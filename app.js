@@ -29,9 +29,9 @@ pir.watch(function(err, value) {
 
     // Movement is detected
     if (value == 1) {
-        console.log('Movement detected');
+        console.log('Movement detected: ' + new Date());
         // Take a screenshot
-        cam.start();
+        // cam.start();
     }
 });
 
@@ -55,5 +55,4 @@ cam.on('start', function(err, timestamp) {
 
 cam.on('read', function(err, timestamp, filename) {
     console.log('Image captured with filename: ' + filename);
-    // cam.stop();
 });
