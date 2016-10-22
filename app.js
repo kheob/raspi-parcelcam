@@ -26,7 +26,8 @@ pir.watch(function(err, value) {
     if (err) {
         pir.unexport();
     }
-    console.log('Hello');
+
+    // Movement is detected
     if (value == 1) {
         console.log('Movement detected');
     }
