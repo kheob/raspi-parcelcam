@@ -34,10 +34,9 @@ app.listen(3000, function() {
 // Camera
 cam.on('start', function(err, timestamp) {
     console.log('Photo started at ' + timestamp);
-    cam.stop();
 });
 
-// cam.on('read', function(err, timestamp, filename) {
-//     console.log('Image captured with filename: ' + filename);
-//     cam.stop();
-// });
+cam.on('read', function(err, timestamp, filename) {
+    console.log('Image captured with filename: ' + filename);
+    cam.stop();
+});
