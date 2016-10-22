@@ -19,7 +19,7 @@ var cam = new RaspiCam({
 });
 
 // Static server
-app.use('/static', express.static(__dirname + '/public'));
+// app.use('/static', express.static(__dirname + '/public'));
 
 // Routes
 app.get('/latest', function(req, res) {
@@ -46,6 +46,9 @@ function takePhoto(res) {
         cam.stop();
 
         // Get the image and serve
-        res.send('public/photo/image.jpg');
+        // Adapted from: http://stackoverflow.com/a/5826883/6601606
+        var image = fs.readFileSync('public/photo/image.jpg');
+        res.writeHead(200, {'Content-Type': 'image/jpg' });
+        res.end(image, 'binary');
     });
 }
