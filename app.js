@@ -23,7 +23,7 @@ app.use('/static', express.static(__dirname + '/public'));
 
 // Routes
 app.get('/latest', function(req, res) {
-    takePhoto(req, res);
+    takePhoto(res);
 });
 
 // Start the server
@@ -46,7 +46,6 @@ function takePhoto(res) {
         cam.stop();
 
         // Get the image and serve
-        // Adapted from: http://stackoverflow.com/a/5826883/6601606
         res.send('public/photo/image.jpg');
     });
 }
