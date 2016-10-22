@@ -26,9 +26,11 @@ app.get('/latest', function(req, res) {
     cam.start();
 
     // Get the image and serve
-    var image = fs.readFileSync('public/photo/image.jpg');
-    res.writeHead(200, {'Content-Type': 'image/jpg' });
-    res.end(image, 'binary');
+    fs.watchFile('message.text', function(curr, prev) {
+        var image = fs.readFileSync('public/photo/image.jpg');
+        res.writeHead(200, {'Content-Type': 'image/jpg' });
+        res.end(image, 'binary');
+    });
 });
 
 // Start the server
