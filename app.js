@@ -8,20 +8,30 @@
 // Dependencies
 var express = require('express'); // http://expressjs.com/
 var RaspiCam = require('raspicam'); // https://github.com/troyth/node-raspicam
+var fs = require('fs'); // Node file system object
 
 var app = express();
 var cam = new RaspiCam({
     mode: 'photo',
-    output: './photo/image.jpg',
+    output: './public/photo/image.jpg',
     encoding: 'jpg',
     timeout: 0
 });
 
+// Static server
+// app.use('/static', express.static(__dirname + '/public'));
+
 // Routes
 app.get('/latest', function(req, res) {
     cam.start();
+
+    // Get the image and serve
+    var image = fs.readFileSync('public/photo/image.jpg');
+    res.writeHead(200, {'Content-Type': 'image/jpg' });
+    res.end(image, 'binary');
 });
 
+// Start the server
 app.listen(3000, function() {
     console.log('Server started on port 3000');
 });
