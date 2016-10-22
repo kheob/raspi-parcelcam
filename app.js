@@ -23,7 +23,7 @@ var cam = new RaspiCam({
 
 // Routes
 app.get('/latest', function(req, res) {
-    takePhoto(res);
+    cam.start();
 });
 
 // Start the server
@@ -34,21 +34,10 @@ app.listen(3000, function() {
 // Camera
 cam.on('start', function(err, timestamp) {
     console.log('Photo started at ' + timestamp);
+    cam.stop();
 });
 
-// Starts the camera, takes a photo, and returns
-function takePhoto(res) {
-    cam.start();
-
-    // Write file
-    cam.on('read', function(err, timestamp, filename) {
-        console.log('Image captured with filename: ' + filename);
-        cam.stop();
-
-        // Get the image and serve
-        // Adapted from: http://stackoverflow.com/a/5826883/6601606
-        var image = fs.readFileSync('public/photo/image.jpg');
-        res.writeHead(200, {'Content-Type': 'image/jpg' });
-        res.end(image, 'binary');
-    });
-}
+// cam.on('read', function(err, timestamp, filename) {
+//     console.log('Image captured with filename: ' + filename);
+//     cam.stop();
+// });
