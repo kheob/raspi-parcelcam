@@ -33,8 +33,5 @@ cam.on('start', function(err, timestamp) {
 
 cam.on('read', function(err, timestamp, filename) {
     console.log('Image captured with filename: ' + filename);
-});
-
-cam.on('exit', function(timestamp) {
-
+    cam.stop();
 });
