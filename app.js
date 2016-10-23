@@ -7,33 +7,12 @@
 
 // Dependencies
 var express = require('express'); // http://expressjs.com/
-var RaspiCam = require('raspicam'); // https://github.com/troyth/node-raspicam
-var Gpio = require('onoff').Gpio; // https://github.com/fivdi/onoff
 var fs = require('fs'); // Node file system object
 
+// Modules
+var cam = require('./modules/camera.js');
+
 var app = express();
-var cam = new RaspiCam({
-    mode: 'photo',
-    output: './public/photo/image.jpg',
-    encoding: 'jpg',
-    timeout: 0
-});
-var pir = new Gpio(4, 'in', 'both'); // PIR sensor
-
-// Watch the GPIO for a high value from the PIR sensor
-// Adapted from http://thejackalofjavascript.com/rpi-pir-sensor-node-iot-intruder-alert/
-pir.watch(function(err, value) {
-    if (err) {
-        pir.unexport();
-    }
-
-    // Movement is detected
-    if (value == 1) {
-        console.log('Movement detected: ' + new Date());
-        // Take a screenshot
-        // cam.start();
-    }
-});
 
 // Static server
 app.use('/static', express.static(__dirname + '/public'));
@@ -48,11 +27,3 @@ app.listen(3000, function() {
     console.log('Server started on port 3000');
 });
 
-// Camera
-cam.on('start', function(err, timestamp) {
-    console.log('Photo started at ' + timestamp);
-});
-
-cam.on('read', function(err, timestamp, filename) {
-    console.log('Image captured with filename: ' + filename);
-});
