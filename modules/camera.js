@@ -30,7 +30,7 @@ pir.watch(function(err, value) {
     if (value == 1) {
         console.log('Movement detected: ' + new Date());
         // Take a screenshot
-        var filename = '/public/photo/image' + photoIndex + '.jpg';
+        var filename = 'public/photo/image' + photoIndex + '.jpg';
         var args = ['-w', '320', '-h', '240', '-o', filename, '-t', '1'];
         var spawn = child_process.spawn('raspistill', args);
         spawn.on('exit', function(code) {
