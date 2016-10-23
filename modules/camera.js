@@ -5,17 +5,19 @@
  */
 
 //  Dependencies
-var RaspiCam = require('raspicam'); // https://github.com/troyth/node-raspicam
+// var RaspiCam = require('raspicam'); // https://github.com/troyth/node-raspicam
 var Gpio = require('onoff').Gpio; // https://github.com/fivdi/onoff
+var child_process = require('child_process');
 
 // Configuration
-var cam = new RaspiCam({
-    mode: 'photo',
-    output: './public/photo/image.jpg',
-    encoding: 'jpg',
-    timeout: 0
-});
+// var cam = new RaspiCam({
+//     mode: 'photo',
+//     output: './public/photo/image.jpg',
+//     encoding: 'jpg',
+//     timeout: 0
+// });
 var pir = new Gpio(4, 'in', 'both'); // PIR sensor
+var photoIndex = 0;
 
 // Watch the GPIO for a high value from the PIR sensor
 // Adapted from http://thejackalofjavascript.com/rpi-pir-sensor-node-iot-intruder-alert/
@@ -28,19 +30,24 @@ pir.watch(function(err, value) {
     if (value == 1) {
         console.log('Movement detected: ' + new Date());
         // Take a screenshot
-        cam.start();
+        var filename = '/public/photo/image' + photoIndex + '.jpg';
+        var args = ['-w', '320', '-h', '240', '-o', filename, '-t', '1'];
+        var spawn = child_process.spawn('raspistill', args);
+        spawn.on('exit', function(code) {
+            console.log('A photo is saved as ' + filename + ' with exit code, ' + code);
+        });
     }
 });
 
-// Camera functions
-cam.on('start', function(err, timestamp) {
-    console.log('Photo started at ' + timestamp);
-});
-
-cam.on('read', function(err, timestamp, filename) {
-    console.log('Image captured with filename: ' + filename);
-    cam.stop();
-});
-
-module.exports.cam = cam;
-module.exports.pir = pir;
+// // Camera functions
+// cam.on('start', function(err, timestamp) {
+//     console.log('Photo started at ' + timestamp);
+// });
+//
+// cam.on('read', function(err, timestamp, filename) {
+//     console.log('Image captured with filename: ' + filename);
+//     cam.stop();
+// });
+//
+// module.exports.cam = cam;
+// module.exports.pir = pir;
