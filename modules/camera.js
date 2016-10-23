@@ -30,13 +30,6 @@ pir.watch(function(err, value) {
         // Take a screenshot
         cam.start();
     }
-
-    // No movement
-    if (value == 0) {
-        console.log('Movement stopped: ' + new Date());
-        // Take a screenshot
-        cam.stop();
-    }
 });
 
 // Camera functions
@@ -46,6 +39,7 @@ cam.on('start', function(err, timestamp) {
 
 cam.on('read', function(err, timestamp, filename) {
     console.log('Image captured with filename: ' + filename);
+    cam.stop();
 });
 
 module.exports.cam = cam;
