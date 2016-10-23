@@ -27,14 +27,19 @@ pir.watch(function(err, value) {
 
     // Movement is detected
     if (value == 1) {
-        var date = (new Date()).toISOString();
-        console.log('Movement detected: ' + date);
-        // Take a screenshot (Adapted from https://github.com/girliemac/RPi-KittyCam)
-        var filename = 'public/photo/' + date + '.jpg';
-        var args = ['-w', '640', '-h', '480', '-o', filename, '-t', '5', '-q', '20'];
-        var spawn = child_process.spawn('raspistill', args);
-        spawn.on('exit', function(status) {
-            console.log('Photo saved as: ' + filename + ' (Status: ' + status + ')');
-        });
+        takePhoto();
     }
 });
+
+// Function that takes a photo and saves it
+function takePhoto() {
+    var date = (new Date()).toISOString();
+    console.log('Movement detected: ' + date);
+    // Take a screenshot (Adapted from https://github.com/girliemac/RPi-KittyCam)
+    var filename = 'public/photo/' + date + '.jpg';
+    var args = ['-w', '640', '-h', '480', '-o', filename, '-t', '5', '-q', '20'];
+    var spawn = child_process.spawn('raspistill', args);
+    spawn.on('exit', function(status) {
+        console.log('Photo saved as: ' + filename + ' (Status: ' + status + ')');
+    });
+}
