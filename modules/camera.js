@@ -33,8 +33,8 @@ pir.watch(function(err, value) {
         var filename = 'public/photo/image' + photoIndex + '.jpg';
         var args = ['-w', '640', '-h', '480', '-o', filename, '-t', '0'];
         var spawn = child_process.spawn('raspistill', args);
-        spawn.on('exit', function() {
-            console.log('Photo saved as: ' + filename);
+        spawn.on('exit', function(status) {
+            console.log('Photo saved as: ' + filename + " (Status: " + status);
             photoIndex++;
         });
     }
