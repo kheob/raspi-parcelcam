@@ -41,4 +41,5 @@ cam.on('read', function(err, timestamp, filename) {
     console.log('Image captured with filename: ' + filename);
 });
 
-module.exports = cam;
+module.exports.cam = cam;
+module.exports.pir = pir;
