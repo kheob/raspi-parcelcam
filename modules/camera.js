@@ -31,10 +31,11 @@ pir.watch(function(err, value) {
         console.log('Movement detected: ' + new Date());
         // Take a screenshot
         var filename = 'public/photo/image' + photoIndex + '.jpg';
-        var args = ['-w', '320', '-h', '240', '-o', filename, '-t', '1'];
+        var args = ['-w', '640', '-h', '480', '-o', filename, '-t', '0'];
         var spawn = child_process.spawn('raspistill', args);
-        spawn.on('exit', function(code) {
-            console.log('A photo is saved as ' + filename + ' with exit code, ' + code);
+        spawn.on('exit', function() {
+            console.log('Photo saved as: ' + filename);
+            photoIndex++;
         });
     }
 });
