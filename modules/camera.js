@@ -30,6 +30,13 @@ pir.watch(function(err, value) {
         // Take a screenshot
         cam.start();
     }
+
+    // No movement
+    if (value == 0) {
+        console.log('Movement stopped: ' + new Date());
+        // Take a screenshot
+        cam.stop();
+    }
 });
 
 // Camera functions
