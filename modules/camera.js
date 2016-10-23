@@ -17,7 +17,6 @@ var child_process = require('child_process');
 //     timeout: 0
 // });
 var pir = new Gpio(4, 'in', 'both'); // PIR sensor
-var photoIndex = 0;
 
 // Watch the GPIO for a high value from the PIR sensor
 // Adapted from http://thejackalofjavascript.com/rpi-pir-sensor-node-iot-intruder-alert/
@@ -28,27 +27,14 @@ pir.watch(function(err, value) {
 
     // Movement is detected
     if (value == 1) {
-        console.log('Movement detected: ' + new Date());
-        // Take a screenshot
-        var filename = 'public/photo/image' + photoIndex + '.jpg';
+        var date = (new Date()).toISOString();
+        console.log('Movement detected: ' + date;
+        // Take a screenshot (Adapted from https://github.com/girliemac/RPi-KittyCam)
+        var filename = 'public/photo/' + date + '.jpg';
         var args = ['-w', '640', '-h', '480', '-o', filename, '-t', '5', '-q', '20'];
         var spawn = child_process.spawn('raspistill', args);
         spawn.on('exit', function(status) {
             console.log('Photo saved as: ' + filename + ' (Status: ' + status + ')');
-            photoIndex++;
         });
     }
 });
-
-// // Camera functions
-// cam.on('start', function(err, timestamp) {
-//     console.log('Photo started at ' + timestamp);
-// });
-//
-// cam.on('read', function(err, timestamp, filename) {
-//     console.log('Image captured with filename: ' + filename);
-//     cam.stop();
-// });
-//
-// module.exports.cam = cam;
-// module.exports.pir = pir;

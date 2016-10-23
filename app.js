@@ -10,7 +10,7 @@ var express = require('express'); // http://expressjs.com/
 var fs = require('fs'); // Node file system object
 
 // Modules
-var camera = require('./modules/camera.js');
+require('./modules/camera.js');
 
 var app = express();
 
@@ -19,7 +19,7 @@ app.use('/static', express.static(__dirname + '/public'));
 
 // Routes
 app.get('/latest', function(req, res) {
-    camera.cam.start();
+
 });
 
 // Start the server
