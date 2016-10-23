@@ -14,8 +14,6 @@ var pir = new Gpio(18, 'in', 'both'); // PIR sensor
 // Watch the GPIO for a high value from the PIR sensor
 // Adapted from http://thejackalofjavascript.com/rpi-pir-sensor-node-iot-intruder-alert/
 pir.watch(function(err, value) {
-    console.log(value);
-
     if (err) {
         pir.unexport();
     }
