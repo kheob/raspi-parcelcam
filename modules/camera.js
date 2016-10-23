@@ -9,14 +9,7 @@
 var Gpio = require('onoff').Gpio; // https://github.com/fivdi/onoff
 var child_process = require('child_process');
 
-// Configuration
-// var cam = new RaspiCam({
-//     mode: 'photo',
-//     output: './public/photo/image.jpg',
-//     encoding: 'jpg',
-//     timeout: 0
-// });
-var pir = new Gpio(4, 'in', 'both'); // PIR sensor
+var pir = new Gpio(17, 'in', 'both'); // PIR sensor
 
 // Watch the GPIO for a high value from the PIR sensor
 // Adapted from http://thejackalofjavascript.com/rpi-pir-sensor-node-iot-intruder-alert/
