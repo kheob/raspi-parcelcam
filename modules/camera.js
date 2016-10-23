@@ -27,7 +27,7 @@ pir.watch(function(err, value) {
 
     // Movement is detected
     if (value == 1) {
-        var date = (new Date()).toISOString();
+        var date = (new Date()).toLocaleDateString();
         console.log('Movement detected: ' + date);
         // Take a screenshot (Adapted from https://github.com/girliemac/RPi-KittyCam)
         var filename = 'public/photo/' + date + '.jpg';
