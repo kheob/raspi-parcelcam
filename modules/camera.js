@@ -9,7 +9,7 @@
 var Gpio = require('onoff').Gpio; // https://github.com/fivdi/onoff
 var child_process = require('child_process');
 
-var pir = new Gpio(17, 'in', 'both'); // PIR sensor
+var pir = new Gpio(18, 'in', 'both'); // PIR sensor
 
 // Watch the GPIO for a high value from the PIR sensor
 // Adapted from http://thejackalofjavascript.com/rpi-pir-sensor-node-iot-intruder-alert/
@@ -26,7 +26,7 @@ pir.watch(function(err, value) {
 
 // Function that takes a photo and saves it
 function takePhoto() {
-    var date = (new Date()).toISOString();
+    var date = Date.now();
     console.log('Movement detected: ' + date);
     // Take a screenshot (Adapted from https://github.com/girliemac/RPi-KittyCam)
     var filename = 'public/photo/' + date + '.jpg';
