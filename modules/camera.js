@@ -20,9 +20,15 @@ pir.watch(function(err, value) {
 
     // Movement is detected
     if (value == 1) {
-        takePhoto();
+        setTimeout(checkFalsePositive(value), 1000);
     }
 });
+
+function checkFalsePositive(value) {
+    if (value == 1) {
+        takePhoto();
+    }
+}
 
 // Function that takes a photo and saves it
 function takePhoto() {
