@@ -3,10 +3,12 @@
  *
  * Created by BaiChanKheo on 23/10/2016.
  */
+'use strict';
 
 //  Dependencies
 var child_process = require('child_process');
 var Gpio = require('onoff').Gpio; // https://github.com/fivdi/onoff
+var Photo = require('../models/photo');
 
 // PIR sensor
 var pir = new Gpio(18, 'in', 'both');
@@ -20,7 +22,7 @@ pir.watch(function(err, value) {
 
     // Movement is detected
     if (value == 1) {
-        // Wait and see if still high - combats false positives
+        // Wait and see if still high - combats false positives (this shouldn't work but it does?)
         setTimeout(function() {
             if (value == 1) {
                 takePhoto();
@@ -35,10 +37,13 @@ function takePhoto() {
     var dateString = date.toISOString().replace(/[-T:.Z]/g, '');
     console.log('Movement detected: ' + date);
     // Take a screenshot (Adapted from https://github.com/girliemac/RPi-KittyCam)
-    var filename = 'public/photo/' + dateString + '.jpg';
+    var filename = 'public/photos/' + dateString + '.jpg';
     var args = ['-w', '640', '-h', '480', '-o', filename, '-t', '20', '-q', '20'];
     var spawn = child_process.spawn('raspistill', args);
     spawn.on('exit', function(status) {
         console.log('Photo saved as: ' + filename + ' (Status: ' + status + ')');
+
+        // Save the data into database
+        Photo.create({date: date, filename: filename});
     });
 }

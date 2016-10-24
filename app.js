@@ -10,7 +10,11 @@ var express = require('express'); // http://expressjs.com/
 var fs = require('fs'); // Node file system object
 
 // Modules
-require('./modules/camera.js');
+require('./modules/camera');
+require('./modules/database');
+
+// Model for the photo object
+var Photo = require('./models/photo');
 
 var app = express();
 
@@ -18,8 +22,15 @@ var app = express();
 app.use('/static', express.static(__dirname + '/public'));
 
 // Routes
-app.get('/latest', function(req, res) {
 
+// Returns all images in the database
+app.get('/photos', function(req, res) {
+    Photo.find({}, function(err, photos) {
+        if (err) {
+            return res.status(500).json({message: err.message});
+        }
+        res.json({photos: photos});
+    });
 });
 
 // Start the server

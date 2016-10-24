@@ -19,6 +19,7 @@
   "dependencies": {
     "epoll": "^0.1.20",
     "express": "^4.14.0",
+    "mongoose": "^4.6.5",
     "onoff": "^1.1.1",
     "raspicam": "^0.2.13",
     "rpi-gpio": "^0.7.0"
