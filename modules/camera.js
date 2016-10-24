@@ -9,11 +9,40 @@ var child_process = require('child_process');
 var gpio = require('rpi-gpio'); // https://github.com/JamesBarwell/rpi-gpio.js
 
 // Listen for changes on the PIR pin
-var pir = 12;
-gpio.on('change', function(channel, value) {
-    console.log('Channel ' + channel + ' is now ' + value + ' (' + new Date() + ")");
+// Adapted from: https://medium.com/@brandonaaskov/raspberry-pi-javascript-motion-sensor-9dab542b0c38#.coditw47o
+var pir = {
+    pin: 12,
+    loop: 1000,
+    triggered: false,
+    value: undefined
+};
+var readInterval = function() {
+    gpio.read(pir.pin, function(error, value) {
+        if (value === pir.triggered) {
+            // Don't do anything if the value hasn't changed
+            return;
+        }
+
+        // Set the triggered value to the new value if changed
+        pir.triggered = value;
+
+        // Do something if the PIR is triggered
+        if (pir.triggered) {
+            takePhoto();
+        } else {
+            console.log('No movement detected.');
+        }
+    });
+};
+
+// Setup
+gpio.setMode(gpio.MODE_RPI);
+gpio.setup(pir.pin, gpio.DIR_IN, function(error) {
+    if (error) {
+        console.error(error);
+    }
+    return setInterval(readInterval, pir.loop);
 });
-gpio.setup(pir, gpio.DIR_IN, gpio.EDGE_BOTH);
 
 // var Gpio = require('onoff').Gpio; // https://github.com/fivdi/onoff
 //
