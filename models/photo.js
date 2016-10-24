@@ -6,12 +6,10 @@
 'use strict';
 
 var mongoose = require('mongoose');
-
 var schema = new mongoose.Schema({
     date: Date,
     filename: String
 });
-
 var model = mongoose.model('Photo', schema);
 
 module.exports = model;

@@ -19,7 +19,7 @@ var Photo = require('./models/photo');
 var app = express();
 
 // Static server
-app.use('/static', express.static(__dirname + '/public'));
+app.use('/public', express.static(__dirname + '/public'));
 
 // Routes
 
