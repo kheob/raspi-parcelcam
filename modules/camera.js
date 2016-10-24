@@ -44,6 +44,6 @@ function takePhoto() {
         console.log('Photo saved as: ' + filename + ' (Status: ' + status + ')');
 
         // Save the data into database
-        Photo.create({date: date, filename: filename});
+        Photo.create({date: date, location: '/' + filename});
     });
 }

@@ -8,7 +8,7 @@
 var mongoose = require('mongoose');
 var schema = new mongoose.Schema({
     date: Date,
-    filename: String
+    location: String
 });
 var model = mongoose.model('Photo', schema);
 
