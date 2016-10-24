@@ -12,7 +12,7 @@ var gpio = require('rpi-gpio'); // https://github.com/JamesBarwell/rpi-gpio.js
 // Adapted from: https://medium.com/@brandonaaskov/raspberry-pi-javascript-motion-sensor-9dab542b0c38#.coditw47o
 var pir = {
     pin: 12,
-    loop: 1000,
+    loop: 2000,
     triggered: false,
     value: undefined
 };
