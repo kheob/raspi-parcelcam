@@ -13,8 +13,6 @@ var pir = new Gpio(18, 'in', 'both');
 
 // Watch the GPIO for a high value from the PIR sensor
 // Adapted from http://thejackalofjavascript.com/rpi-pir-sensor-node-iot-intruder-alert/
-var previousValue = 0;
-
 pir.watch(function(err, value) {
     if (err) {
         pir.unexport();
@@ -22,14 +20,12 @@ pir.watch(function(err, value) {
 
     // Movement is detected
     if (value == 1) {
-        if (previousValue == 0) {
-            previousValue = 1;
-        } else {
-            takePhoto();
-            previousValue = 0;
-        }
-    } else {
-        previousValue = 0;
+        // Wait and see if still high - combats false positives
+        setTimeout(function() {
+            if (value == 1) {
+                takePhoto();
+            }
+        }, 1000);
     }
 });
 
