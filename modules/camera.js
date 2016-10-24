@@ -5,24 +5,33 @@
  */
 
 //  Dependencies
-// var RaspiCam = require('raspicam'); // https://github.com/troyth/node-raspicam
-var Gpio = require('onoff').Gpio; // https://github.com/fivdi/onoff
 var child_process = require('child_process');
+var gpio = require('rpi-gpio'); // https://github.com/JamesBarwell/rpi-gpio.js
 
-var pir = new Gpio(4, 'in', 'both'); // PIR sensor
-
-// Watch the GPIO for a high value from the PIR sensor
-// Adapted from http://thejackalofjavascript.com/rpi-pir-sensor-node-iot-intruder-alert/
-pir.watch(function(err, value) {
-    if (err) {
-        pir.unexport();
-    }
-
-    // Movement is detected
-    if (value == 1) {
-        takePhoto();
-    }
+// Listen for changes on the PIR pin
+var pir = 12;
+gpio.on('change', function(channel, value) {
+    console.log('Channel ' + channel + ' is now ' + value + ' (' + new Date() + ")");
 });
+gpio.setup(pir, gpio.DIR_IN, gpio.EDGE_BOTH);
+
+// var Gpio = require('onoff').Gpio; // https://github.com/fivdi/onoff
+//
+//
+// var pir = new Gpio(4, 'in', 'both'); // PIR sensor
+//
+// // Watch the GPIO for a high value from the PIR sensor
+// // Adapted from http://thejackalofjavascript.com/rpi-pir-sensor-node-iot-intruder-alert/
+// pir.watch(function(err, value) {
+//     if (err) {
+//         pir.unexport();
+//     }
+//
+//     // Movement is detected
+//     if (value == 1) {
+//         takePhoto();
+//     }
+// });
 
 // Function that takes a photo and saves it
 function takePhoto() {
