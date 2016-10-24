@@ -20,7 +20,11 @@ pir.watch(function(err, value) {
 
     // Movement is detected
     if (value == 1) {
-        takePhoto();
+        setTimeout(function() {
+            if (value == 1) {
+                takePhoto();
+            }
+        }, 1000);
     }
 });
 
