@@ -26,10 +26,11 @@ pir.watch(function(err, value) {
 
 // Function that takes a photo and saves it
 function takePhoto() {
-    var date = (new Date()).toISOString().replace(/[-T:.]/g, '');
+    var date = new Date();
+    var dateString = date.toISOString().replace(/[-T:.Z]/g, '');
     console.log('Movement detected: ' + date);
     // Take a screenshot (Adapted from https://github.com/girliemac/RPi-KittyCam)
-    var filename = 'public/photo/' + date + '.jpg';
+    var filename = 'public/photo/' + dateString + '.jpg';
     var args = ['-w', '640', '-h', '480', '-o', filename, '-t', '20', '-q', '20'];
     var spawn = child_process.spawn('raspistill', args);
     spawn.on('exit', function(status) {
