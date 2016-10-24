@@ -26,7 +26,7 @@ pir.watch(function(err, value) {
 
 // Function that takes a photo and saves it
 function takePhoto() {
-    var date = (new Date()).toISOString();
+    var date = (new Date()).toISOString().replace('[-T:.]', '');
     console.log('Movement detected: ' + date);
     // Take a screenshot (Adapted from https://github.com/girliemac/RPi-KittyCam)
     var filename = 'public/photo/' + date + '.jpg';
