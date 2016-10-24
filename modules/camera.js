@@ -6,42 +6,22 @@
 
 //  Dependencies
 var child_process = require('child_process');
-var gpio = require('rpi-gpio'); // https://github.com/JamesBarwell/rpi-gpio.js
+var Gpio = require('onoff').Gpio; // https://github.com/fivdi/onoff
 
-// Listen for changes on the PIR pin
-// Adapted from: https://medium.com/@brandonaaskov/raspberry-pi-javascript-motion-sensor-9dab542b0c38#.coditw47o
-var pir = {
-    pin: 12,
-    loop: 2000, // Set it higher to reduce false positives
-    triggered: false,
-    value: undefined
-};
-var readInterval = function() {
-    gpio.read(pir.pin, function(error, value) {
-        if (value === pir.triggered) {
-            // Don't do anything if the value hasn't changed
-            return;
-        }
+// PIR sensor
+var pir = new Gpio(18, 'in', 'both');
 
-        // Set the triggered value to the new value if changed
-        pir.triggered = value;
-
-        // Do something if the PIR is triggered
-        if (pir.triggered) {
-            takePhoto();
-        } else {
-            console.log('No movement detected.');
-        }
-    });
-};
-
-// Setup GPIO
-gpio.setMode(gpio.MODE_RPI);
-gpio.setup(pir.pin, gpio.DIR_IN, function(error) {
-    if (error) {
-        console.error(error);
+// Watch the GPIO for a high value from the PIR sensor
+// Adapted from http://thejackalofjavascript.com/rpi-pir-sensor-node-iot-intruder-alert/
+pir.watch(function(err, value) {
+    if (err) {
+        pir.unexport();
     }
-    return setInterval(readInterval, pir.loop);
+
+    // Movement is detected
+    if (value == 1) {
+        takePhoto();
+    }
 });
 
 // Function that takes a photo and saves it
