@@ -21,4 +21,11 @@ router.get('/', function(req, res) {
     });
 });
 
+// Returns images for a particular date
+router.get('/:date', function(req, res) {
+    var date = Date.parse(req.params.date);
+    console.log(date);
+    res.json({date: date});
+});
+
 module.exports = router;
