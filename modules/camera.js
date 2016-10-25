@@ -11,7 +11,7 @@ var Gpio = require('onoff').Gpio; // https://github.com/fivdi/onoff
 var Photo = require('../models/photo');
 
 // PIR sensor
-var pir = new Gpio(18, 'in', 'both');
+var pir = new Gpio(18, 'in', 'rising');
 
 // Watch the GPIO for a high value from the PIR sensor
 // Adapted from http://thejackalofjavascript.com/rpi-pir-sensor-node-iot-intruder-alert/
