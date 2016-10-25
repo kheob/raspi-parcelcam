@@ -11,7 +11,7 @@ var Gpio = require('onoff').Gpio; // https://github.com/fivdi/onoff
 var Photo = require('../models/photo');
 
 // PIR sensor
-var pir = new Gpio(18, 'in', 'rising');
+var pir = new Gpio(18, 'in', 'both');
 
 // Watch the GPIO for a high value from the PIR sensor
 // Adapted from http://thejackalofjavascript.com/rpi-pir-sensor-node-iot-intruder-alert/
@@ -24,9 +24,12 @@ pir.watch(function(err, value) {
     if (value == 1) {
         // Wait a random time between 1s and 2s, seems to help combat false positives
         setTimeout(function() {
-            if (value == 1) {
-                takePhoto();
-            }
+            // Read again, if still high, then take a photo
+            pir.read(function(err, value) {
+                if (value == 1) {
+                    takePhoto();
+                }
+            });
         }, Math.floor(Math.random() * 1000) + 1000);
     }
 });
