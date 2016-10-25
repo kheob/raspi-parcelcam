@@ -23,9 +23,12 @@ router.get('/', function(req, res) {
 
 // Returns images for a particular date (format: YYYY-MM-DD)
 router.get('/:date', function(req, res) {
+    const aest = 11;
     var date = new Date(req.params.date); // Start range
+    date.setHours(date.getHours() - aest); // Account for locale
     var nextDay = new Date(req.params.date); // End range
     nextDay.setDate(date.getDate() + 1); // Get tomorrow's date (Source: http://stackoverflow.com/a/23081260/6601606)
+    nextDay.setHours(nextDay.getHours() - aest);
 
     // Find the photos in that date range
     Photo.find({date: {
