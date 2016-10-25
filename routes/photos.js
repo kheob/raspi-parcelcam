@@ -9,7 +9,7 @@ var express = require('express');
 var router = express.Router();
 
 // Model for the photo object
-var Photo = require('./models/photo');
+var Photo = require('../models/photo');
 
 // Returns all images in the database
 router.get('/', function(req, res) {
