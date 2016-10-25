@@ -22,12 +22,12 @@ pir.watch(function(err, value) {
 
     // Movement is detected
     if (value == 1) {
-        // Wait and see if still high - combats false positives (this shouldn't work but it does?)
+        // Wait a random time between 1s and 2s, seems to help combat false positives
         setTimeout(function() {
             if (value == 1) {
                 takePhoto();
             }
-        }, 1000);
+        }, Math.floor(Math.random() * 1000) + 1000);
     }
 });
 
