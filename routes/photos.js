@@ -24,7 +24,7 @@ router.get('/', function(req, res) {
 // Returns images for a particular date (format: YYYY-MM-DD)
 router.get('/:date', function(req, res) {
     var date = new Date(req.params.date); // Start range
-    var nextDay = date + 1; // End range
+    var nextDay = date.getDate() + 1; // End range
 
     console.log(date.toUTCString());
     console.log(nextDay.toUTCString());
