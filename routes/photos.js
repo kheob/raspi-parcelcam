@@ -26,6 +26,9 @@ router.get('/:date', function(req, res) {
     var date = new Date(req.params.date); // Start range
     var nextDay = date + 1; // End range
 
+    console.log(date.toUTCString());
+    console.log(nextDay.toUTCString());
+
     // Find the photos in that date range
     Photo.find({date: {
         "$gte": date,
