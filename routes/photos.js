@@ -25,7 +25,11 @@ router.get('/', function(req, res) {
 router.get('/:date', function(req, res) {
     var date = new Date(req.params.date); // Start range
     var endOfDay = new Date(req.params.date); // End range
-    endOfDay.setHours(23,59,59,999); // Source: http://stackoverflow.com/a/8636674/6601606
+
+    date = new Date().setHours(0,0,0,0);
+    endOfDay = new Date().setHours(23,59,59,999);
+
+    // endOfDay.setHours(23,59,59,999); // Source: http://stackoverflow.com/a/8636674/6601606
 
     // Find the photos in that date range
     Photo.find({date: {
