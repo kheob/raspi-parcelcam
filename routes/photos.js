@@ -25,10 +25,7 @@ router.get('/', function(req, res) {
 router.get('/:date', function(req, res) {
     var date = new Date(req.params.date); // Start range
     var nextDay = new Date(req.params.date); // End range
-    nextDay.setDate(date.getDate() + 1);
-
-    console.log(date.toUTCString());
-    console.log(nextDay.toUTCString());
+    nextDay.setDate(date.getDate() + 1); // Get tomorrow's date (Source: http://stackoverflow.com/a/23081260/6601606)
 
     // Find the photos in that date range
     Photo.find({date: {
