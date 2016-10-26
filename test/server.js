@@ -23,7 +23,7 @@ http.createServer(function(req, res) {
             // Init the mjpeg-server.
             reqHandler = mjpegServer.createReqHandler(req, res);
 
-            python = child_process.spawn('python3', 'camera.py');
+            python = child_process.spawn('python3', ['camera.py']);
             console.log('camera started.');
 
             // Because our JPEG's are flowing in chopped up, we must assemble them in an array.
