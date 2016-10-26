@@ -48,11 +48,8 @@ http.createServer(function(req, res) {
                         // Update cache.
                         lastGoodBuffer = Buffer(buf);
                         // Send the frame!
-                        try {
-                            reqHandler.update(buf);
-                        } catch (e) {
-                            console.log(e);
-                        }
+                        // reqHandler.update(buf);
+                        console.log(buf);
                         // Start new array.
                         bufArray = [data];
                     } else {
@@ -60,7 +57,7 @@ http.createServer(function(req, res) {
                         bufArray = [data];
                         if (lastGoodBuffer != undefined) {
                             // Send our cached frame!
-                            reqHandler.update(buf);
+                            // reqHandler.update(buf);
                         }
                     }
                     // Assembling the JPEG...
