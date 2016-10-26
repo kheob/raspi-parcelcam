@@ -1,0 +1,9 @@
+{
+  "name": "server",
+  "description": "MJPEG server for the Raspberry Pi camera module.",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "mjpeg-server": "0.x"
+  }
+}
