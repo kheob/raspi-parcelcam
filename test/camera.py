@@ -14,7 +14,7 @@ with picamera.PiCamera() as camera:
  camera.start_preview()
  time.sleep(2)
  # Start recording, sending the output to stdout as binary.
- camera.start_recording(sys.stdout.buffer, format='mjpeg', resize=(854, 480))
+ camera.start_recording(sys.stdout.buffer, format='mjpeg', resize=(320, 240))
  camera.wait_recording(999999999)
  camera.stop_recording()
 
