@@ -48,7 +48,11 @@ http.createServer(function(req, res) {
                         // Update cache.
                         lastGoodBuffer = Buffer(buf);
                         // Send the frame!
-                        reqHandler.update(buf);
+                        try {
+                            reqHandler.update(buf);
+                        } catch (e) {
+                            console.log(e);
+                        }
                         // Start new array.
                         bufArray = [data];
                     } else {
