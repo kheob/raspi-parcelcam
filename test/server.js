@@ -1,13 +1,3 @@
-/**
- * Created by BaiChanKheo on 26/10/2016.
- */
-//
-// Init
-//
-
-var http = require('http');
-var mjpegServer = require('mjpeg-server');
-
 //
 // Init
 //
