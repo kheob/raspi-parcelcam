@@ -23,16 +23,6 @@ pir.watch(function(err, value) {
     // Movement is detected
     if (value == 1) {
         takePhoto();
-
-        // // Wait a random time between 1s and 2s, seems to help combat false positives
-        // setTimeout(function() {
-        //     // Read again, if still high, then take a photo
-        //     pir.read(function(err, value) {
-        //         if (value == 1) {
-        //             takePhoto();
-        //         }
-        //     });
-        // }, Math.floor(Math.random() * 1000) + 1000);
     }
 });
 

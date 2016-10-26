@@ -22,6 +22,7 @@
     "mongoose": "^4.6.5",
     "onoff": "^1.1.1",
     "raspicam": "^0.2.13",
-    "rpi-gpio": "^0.7.0"
+    "rpi-gpio": "^0.7.0",
+    "socket.io": "^1.5.1"
   }
 }
