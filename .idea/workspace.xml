@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b377b86-43fd-42d0-a2d3-3bc54b450d1c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/epoll/build/Release/.deps/Release/obj.target/epoll.node.d" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/node_modules/epoll/build/Release/obj.target/epoll.node" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/epoll/build/Release/epoll.node" afterPath="$PROJECT_DIR$/node_modules/epoll/build/Release/epoll.node" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/epoll/build/Release/obj.target/epoll/src/epoll.o" afterPath="$PROJECT_DIR$/node_modules/epoll/build/Release/obj.target/epoll/src/epoll.o" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/camera.js" afterPath="$PROJECT_DIR$/modules/camera.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/epoll/build/Makefile" afterPath="$PROJECT_DIR$/node_modules/epoll/build/Makefile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/epoll/build/Release/.deps/Release/epoll.node.d" afterPath="$PROJECT_DIR$/node_modules/epoll/build/Release/.deps/Release/epoll.node.d" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/epoll/build/Release/.deps/Release/obj.target/epoll/src/epoll.o.d" afterPath="$PROJECT_DIR$/node_modules/epoll/build/Release/.deps/Release/obj.target/epoll/src/epoll.o.d" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/epoll/build/config.gypi" afterPath="$PROJECT_DIR$/node_modules/epoll/build/config.gypi" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/epoll/build/epoll.target.mk" afterPath="$PROJECT_DIR$/node_modules/epoll/build/epoll.target.mk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/epoll/package.json" afterPath="$PROJECT_DIR$/node_modules/epoll/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.js" afterPath="$PROJECT_DIR$/test.js" />
     </list>
     <ignored path="raspi-parcelcam.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,18 +51,18 @@
       <file leaf-file-name="camera.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modules/camera.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="43" column="1" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="1" />
+            <state relative-caret-position="525">
+              <caret line="35" column="82" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="82" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="test.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="872">
-              <caret line="74" column="1" selection-start-line="74" selection-start-column="1" selection-end-line="74" selection-end-column="1" />
+            <state relative-caret-position="647">
+              <caret line="63" column="113" selection-start-line="63" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
               <folding>
                 <element signature="e#0#48#0" expanded="false" />
               </folding>
@@ -83,7 +70,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="825">
@@ -140,8 +127,8 @@
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/routes/photos.js" />
         <option value="$PROJECT_DIR$/modules/camera.js" />
-        <option value="$PROJECT_DIR$/test.js" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/test.js" />
       </list>
     </option>
   </component>
@@ -331,12 +318,12 @@
       <workItem from="1477308176045" duration="5304000" />
       <workItem from="1477368957236" duration="5299000" />
       <workItem from="1477379387157" duration="12000" />
-      <workItem from="1477456529980" duration="1009000" />
+      <workItem from="1477456529980" duration="1338000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31775000" />
+    <option name="totallyTimeSpent" value="32104000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2560" height="1347" extended-state="6" />
@@ -600,29 +587,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="55" column="7" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/modules/camera.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="43" column="1" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="1" />
+        <state relative-caret-position="525">
+          <caret line="35" column="82" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="82" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="872">
-          <caret line="74" column="1" selection-start-line="74" selection-start-column="1" selection-end-line="74" selection-end-column="1" />
+        <state relative-caret-position="647">
+          <caret line="63" column="113" selection-start-line="63" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
           <folding>
             <element signature="e#0#48#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="55" column="7" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
