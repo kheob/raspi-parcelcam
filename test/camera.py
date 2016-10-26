@@ -6,7 +6,7 @@ import picamera
 with picamera.PiCamera() as camera:
  # You can set these as you wish, this is what I used for
  # my setup.
- camera.resolution = (854, 480)
+ camera.resolution = (320, 240)
  camera.hflip = True
  camera.vflip = True
  camera.framerate = 24
