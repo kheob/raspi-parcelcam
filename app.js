@@ -22,6 +22,13 @@ app.use('/public', express.static(__dirname + '/public'));
 app.use('/photos', require('./routes/photos'));
 app.use('/stream', require('./routes/stream'));
 
+// Enable CORS (Source: http://jonathanmh.com/how-to-enable-cors-in-express-js-node-js/)
+app.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+});
+
 // Start the server
 app.listen(3000, function() {
     console.log('Server started on port 3000');
