@@ -34,7 +34,7 @@ router.get('/', function(req, res) {
         //     process.kill();
         // });
         child_process.spawn('pkill', ['-f', 'raspistill']);
-        child_process.spawn('pkill', ['-f', 'mjpg_streamer']);
+        child_process.spawn('pkill', ['-f', 'mjpg']);
 
         res.send('Live camera stopped.');
     }
