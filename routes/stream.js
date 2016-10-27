@@ -22,17 +22,14 @@ router.get('/', function(req, res) {
         var args = ['--nopreview', '-w', '320', '-h', '240', '-q', '5', '-o', 'stream/stream.jpg', '-tl', '100', '-t', '9999999', '-th', '0:0:0'];
         child_process.spawn('raspistill', args);
 
+        // Wait a bit for the camera to get ready
         setInterval(function() {
-            child_process.spawn('mjpg_streamer', ['-i', 'input_file.so -f stream -n stream.jpg', '-o', 'output_http.so -w /usr/local/www']);
+            child_process.spawn('mjpg_streamer', ['-i', 'input_file.so -f stream -n stream.jpg', '-o', 'output_http.so -p 3000 -w stream']);
         }, 1000);
 
         res.send('Live camera started.');
     } else if (start === 'false') {
-        // Stop the camera and stream
-        // processes.forEach(function(process, index) {
-        //     console.log(index);
-        //     process.kill();
-        // });
+        // Stop the processes
         child_process.spawn('pkill', ['-f', 'raspistill']);
         child_process.spawn('pkill', ['-f', 'mjpg']);
 
