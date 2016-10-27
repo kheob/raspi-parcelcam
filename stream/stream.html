@@ -23,14 +23,14 @@
             });
         });
 
-        $('#start').on('click', function(event) {
+        $('#stop').on('click', function(event) {
             event.preventDefault();
 
             // Get own IP address
             $.getJSON('http://jsonip.com/?callback=?', function (data) {
                 var ip = data.ip;
                 $.get('http://' + ip + ':3000/stream?start=false', function() {
-                    console.log('Camera stoppped');
+                    console.log('Camera stopped');
                 });
             });
         });
