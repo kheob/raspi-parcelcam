@@ -16,15 +16,15 @@ require('./modules/database');
 
 var app = express();
 
+// Enable CORS
+app.use(cors());
+
 // Static server
 app.use('/public', express.static(__dirname + '/public'));
 
 // Routes
 app.use('/photos', require('./routes/photos'));
 app.use('/stream', require('./routes/stream'));
-
-// Enable CORS
-app.use(cors());
 
 // Start the server
 app.listen(3000, function() {
