@@ -7,6 +7,7 @@
 
 // Dependencies
 var express = require('express'); // http://expressjs.com/
+var child_process = require('child_process');
 
 // Modules
 require('./modules/camera');
@@ -25,3 +26,6 @@ app.use('/stream', require('./routes/stream'));
 app.listen(3000, function() {
     console.log('Server started on port 3000');
 });
+
+// Start MJPG Streamer on port 8090
+child_process.spawn('mjpg_streamer', ['-i', 'input_file.so -f stream -n stream.jpg', '-o', 'output_http.so -p 8090 -w stream']);
