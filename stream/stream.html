@@ -3,22 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <title>Stream</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        img {
+            margin-top: 2rem;
+        }
+        button {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 0 !important;
+        }
+        .well,
+        .well-sm {
+            border-radius: 0 !important;
+        }
+
+        .alert {
+            border-radius: 0 !important;
+        }
+    </style>
 </head>
 <body>
-    <img src="/?action=stream">
-    <a id="start" href="#">Start</a>
-    <a id="stop" href="#">Stop</a>
+    <div class="container text-center well well-sm">
+        <div class="row">
+            <img src="/?action=stream" style="width: 320px; height: 240px;">
+        </div>
+        <div class="row">
+            <div>
+                <div><button class="btn btn-danger col-xs-4 col-xs-offset-2" id="stop">
+                    Stop
+                </button></div>
+                <div><button class="btn btn-success col-xs-4" id="start">
+                    Start
+                </button></div>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <div class="alert" id="alert-box">
+
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>
         // Get IP of server
         var ip = window.location.hostname;
 
+        // Hide the alert-box
+        $('#alert-box').hide();
+
         // Start the camera on click
         $('#start').on('click', function(event) {
             event.preventDefault();
             $.get('http://' + ip + ':3000/stream?start=true', function(data) {
-                console.log(data);
+                // Show alert to user
+                $('#alert-box').removeClass('alert-danger').addClass('alert-success').show().html(data.message);
             });
         });
 
@@ -26,7 +71,8 @@
         $('#stop').on('click', function(event) {
             event.preventDefault();
             $.get('http://' + ip + ':3000/stream?start=false', function(data) {
-                console.log(data);
+                // Show alert to user
+                $('#alert-box').removeClass('alert-success').addClass('alert-danger').show().html(data.message);
             });
         });
     </script>
