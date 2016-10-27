@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6b377b86-43fd-42d0-a2d3-3bc54b450d1c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/stream.js" afterPath="$PROJECT_DIR$/routes/stream.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stream/stream.html" afterPath="$PROJECT_DIR$/stream/stream.html" />
     </list>
     <ignored path="raspi-parcelcam.iws" />
@@ -42,8 +41,8 @@
       <file leaf-file-name="stream.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/stream/stream.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" column="37" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
+            <state relative-caret-position="60">
+              <caret line="4" column="54" selection-start-line="4" selection-start-column="54" selection-end-line="4" selection-end-column="54" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -389,12 +388,12 @@
       <workItem from="1477538554824" duration="6000" />
       <workItem from="1477543568501" duration="955000" />
       <workItem from="1477545177901" duration="12363000" />
-      <workItem from="1477562076377" duration="518000" />
+      <workItem from="1477562076377" duration="836000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51573000" />
+    <option name="totallyTimeSpent" value="51891000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1396" height="1347" extended-state="0" />
@@ -743,8 +742,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/stream/stream.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="37" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
+        <state relative-caret-position="60">
+          <caret line="4" column="54" selection-start-line="4" selection-start-column="54" selection-end-line="4" selection-end-column="54" />
           <folding>
             <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
