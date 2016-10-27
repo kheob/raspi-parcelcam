@@ -17,7 +17,7 @@ var processes = [];
 router.get('/', function(req, res) {
     var start = req.query.start;
 
-    if (start) {
+    if (start === 'true') {
         // Start the camera (Uses MJPG-Streamer adapted from: https://blog.miguelgrinberg.com/post/how-to-build-and-run-mjpg-streamer-on-the-raspberry-pi)
         var args = ['--nopreview', '-w', '320', '-h', '240', '-q', '5', '-o', 'stream/stream.jpg', '-tl', '100', '-t', '9999999', '-th', '0:0:0'];
         processes.push(child_process.spawn('raspistill', args));
@@ -27,9 +27,10 @@ router.get('/', function(req, res) {
         }, 1000);
 
         res.send('Live camera started.');
-    } else if (!start) {
+    } else if (start === 'false') {
         // Stop the camera and stream
-        processes.forEach(function(process) {
+        processes.forEach(function(process, index) {
+            console.log(index);
             process.kill();
         });
 
