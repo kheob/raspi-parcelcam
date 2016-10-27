@@ -12,9 +12,9 @@ var child_process = require('child_process');
 
 // Handles the camera live stream (?start=true and ?start=false query params)
 router.get('/', function(req, res) {
-    var start = req.params.start;
+    var start = req.query.start;
 
-    if (start == 'true') {
+    if (start) {
         // Start the camera (Uses MJPG-Streamer adapted from: https://blog.miguelgrinberg.com/post/how-to-build-and-run-mjpg-streamer-on-the-raspberry-pi)
         var args = ['--nopreview', '-w', '320', '-h', '240', '-q', '5', '-o', 'stream/stream.jpg', '-tl', '100', '-t', '9999999', '-th', '0:0:0', '&'];
         var camera = child_process.spawn('raspistill', args);
