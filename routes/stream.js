@@ -19,12 +19,12 @@ router.get('/', function(req, res) {
         var args = ['--nopreview', '-w', '320', '-h', '240', '-q', '20', '-o', 'stream/stream.jpg', '-tl', '100', '-t', '9999999', '-th', '0:0:0'];
         child_process.spawn('raspistill', args);
 
-        res.send('Live camera started.');
+        res.json({message: 'Live camera started.'});
     } else if (start === 'false') {
         // Stop the processes
         child_process.spawn('pkill', ['-f', 'raspistill']);
 
-        res.send('Live camera stopped.');
+        res.json({message: 'Live camera stopped.'});
     }
 });
 

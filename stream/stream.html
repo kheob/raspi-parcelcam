@@ -11,18 +11,20 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>
+        // Start the camera on click
         $('#start').on('click', function(event) {
             event.preventDefault();
 
-            // Get own IP address
+            // Get own IP address (Source: http://stackoverflow.com/a/19953367/6601606)
             $.getJSON('http://jsonip.com/?callback=?', function (data) {
                 var ip = data.ip;
                 $.get('http://' + ip + ':3000/stream?start=true', function() {
-                    console.log('Camera started');
+                    console.log('Camera started.');
                 });
             });
         });
 
+        // Stop the camera on click
         $('#stop').on('click', function(event) {
             event.preventDefault();
 
@@ -30,7 +32,7 @@
             $.getJSON('http://jsonip.com/?callback=?', function (data) {
                 var ip = data.ip;
                 $.get('http://' + ip + ':3000/stream?start=false', function() {
-                    console.log('Camera stopped');
+                    console.log('Camera stopped.');
                 });
             });
         });
