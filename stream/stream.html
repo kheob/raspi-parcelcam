@@ -13,31 +13,20 @@
     <script>
         // Get IP of server
         var ip = window.location.hostname;
-        console.log(ip);
 
         // Start the camera on click
         $('#start').on('click', function(event) {
             event.preventDefault();
-
-            // Get own IP address (Source: http://stackoverflow.com/a/19953367/6601606)
-            $.getJSON('http://jsonip.com/?callback=?', function (data) {
-                var ip = data.ip;
-                $.get('http://' + ip + ':3000/stream?start=true', function() {
-                    console.log('Camera started.');
-                });
+            $.get('http://' + ip + ':3000/stream?start=true', function(data) {
+                console.log(data);
             });
         });
 
         // Stop the camera on click
         $('#stop').on('click', function(event) {
             event.preventDefault();
-
-            // Get own IP address
-            $.getJSON('http://jsonip.com/?callback=?', function (data) {
-                var ip = data.ip;
-                $.get('http://' + ip + ':3000/stream?start=false', function() {
-                    console.log('Camera stopped.');
-                });
+            $.get('http://' + ip + ':3000/stream?start=false', function(data) {
+                console.log(data);
             });
         });
     </script>
