@@ -24,7 +24,7 @@ router.get('/', function(req, res) {
 
         // Wait a bit for the camera to get ready
         setInterval(function() {
-            child_process.spawn('mjpg_streamer', ['-i', 'input_file.so -f stream -n stream.jpg', '-o', 'output_http.so -p 8090 -w /usr/local/www']);
+            child_process.spawn('mjpg_streamer', ['-i', 'input_file.so -f stream -n stream.jpg', '-o', 'output_http.so -p 8090 -w stream']);
         }, 1000);
 
         res.send('Live camera started.');
