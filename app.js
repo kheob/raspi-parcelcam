@@ -19,6 +19,7 @@ app.use('/public', express.static(__dirname + '/public'));
 
 // Routes
 app.use('/photos', require('./routes/photos'));
+app.use('/stream', require('./routes/stream'));
 
 // Start the server
 app.listen(3000, function() {
