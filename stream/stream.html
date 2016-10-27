@@ -1,9 +1,12 @@
-<html>
-<head><title>Kitty-cam Live-stream</title></head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Live camera feed</title>
+</head>
 <body>
-<center><h1>Meow</h1></center>
-<center>
-    <img src="/?action=stream" />
-</center>
-<body>
+    <img src="/?action=stream">
+    <a href="localhost:3000/stream?start=true">Start</a>
+    <a href="localhost:3000/stream?start=false">Stop</a>
+</body>
 </html>

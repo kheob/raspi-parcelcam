@@ -1,5 +1,5 @@
 /**
- * Handles the streaming route.
+ * Handles the streaming route. Uses MJPG-Streamer (https://sourceforge.net/projects/mjpg-streamer/).
  *
  * Created by BaiChanKheo on 27/10/2016.
  */
@@ -19,11 +19,12 @@ router.get('/', function(req, res) {
 
     if (start === 'true') {
         // Start the camera (Uses MJPG-Streamer adapted from: https://blog.miguelgrinberg.com/post/how-to-build-and-run-mjpg-streamer-on-the-raspberry-pi)
-        var args = ['--nopreview', '-w', '320', '-h', '240', '-q', '5', '-o', 'stream/stream.jpg', '-tl', '100', '-t', '9999999', '-th', '0:0:0'];
+        var args = ['--nopreview', '-w', '320', '-h', '240', '-q', '20', '-o', 'stream/stream.jpg', '-tl', '100', '-t', '9999999', '-th', '0:0:0'];
         child_process.spawn('raspistill', args);
 
         // Wait a bit for the camera to get ready
         setInterval(function() {
+            // Start the streamer on port 8090
             child_process.spawn('mjpg_streamer', ['-i', 'input_file.so -f stream -n stream.jpg', '-o', 'output_http.so -p 8090 -w stream']);
         }, 1000);
 

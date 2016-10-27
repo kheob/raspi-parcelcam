@@ -16,7 +16,6 @@ var app = express();
 
 // Static server
 app.use('/public', express.static(__dirname + '/public'));
-app.use('/stream', express.static(__dirname + '/stream'));
 
 // Routes
 app.use('/photos', require('./routes/photos'));
