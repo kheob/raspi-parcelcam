@@ -20,19 +20,21 @@ router.get('/', function(req, res) {
     if (start === 'true') {
         // Start the camera (Uses MJPG-Streamer adapted from: https://blog.miguelgrinberg.com/post/how-to-build-and-run-mjpg-streamer-on-the-raspberry-pi)
         var args = ['--nopreview', '-w', '320', '-h', '240', '-q', '5', '-o', 'stream/stream.jpg', '-tl', '100', '-t', '9999999', '-th', '0:0:0'];
-        processes.push(child_process.spawn('raspistill', args));
+        child_process.spawn('raspistill', args);
 
         setInterval(function() {
-            processes.push(child_process.spawn('mjpg_streamer', ['-i', 'input_file.so -f stream -n stream.jpg', '-o', 'output_http.so -w /usr/local/www']));
+            child_process.spawn('mjpg_streamer', ['-i', 'input_file.so -f stream -n stream.jpg', '-o', 'output_http.so -w /usr/local/www']);
         }, 1000);
 
         res.send('Live camera started.');
     } else if (start === 'false') {
         // Stop the camera and stream
-        processes.forEach(function(process, index) {
-            console.log(index);
-            process.kill();
-        });
+        // processes.forEach(function(process, index) {
+        //     console.log(index);
+        //     process.kill();
+        // });
+        child_process.spawn('pkill', ['-f', 'raspistill']);
+        child_process.spawn('pkill', ['-f', 'mjpg_streamer']);
 
         res.send('Live camera stopped.');
     }
