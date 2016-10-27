@@ -6,13 +6,33 @@
 </head>
 <body>
     <img src="/?action=stream">
-    <a href="http://144.138.51.105:3000/stream?start=true">Start</a>
-    <a href="http://144.138.51.105:3000/stream?start=false">Stop</a>
+    <a id="start" href="#">Start</a>
+    <a id="stop" href="#">Stop</a>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>
-        $('a').on('click', function(event) {
+        $('#start').on('click', function(event) {
             event.preventDefault();
+
+            // Get own IP address
+            $.getJSON('http://jsonip.com/?callback=?', function (data) {
+                var ip = data.ip;
+                $.get('http://' + ip + ':3000/stream?start=true', function() {
+                    console.log('Camera started');
+                });
+            });
+        });
+
+        $('#start').on('click', function(event) {
+            event.preventDefault();
+
+            // Get own IP address
+            $.getJSON('http://jsonip.com/?callback=?', function (data) {
+                var ip = data.ip;
+                $.get('http://' + ip + ':3000/stream?start=false', function() {
+                    console.log('Camera stoppped');
+                });
+            });
         });
     </script>
 </body>
