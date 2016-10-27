@@ -12,7 +12,7 @@ var spawn = require('child_process').spawn;
 var proc;
 
 app.use('/', express.static(path.join(__dirname, 'stream')));
-app.use('/socket.io', express.static(p__dirname + 'socket.io'));
+app.use('/socket.io', express.static(__dirname + 'socket.io'));
 
 
 app.get('/', function(req, res) {
