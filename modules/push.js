@@ -9,7 +9,6 @@
 var apn = require('apn');
 
 var service = new apn.Provider({
-    cert: 'keys/cert.cer',
     key: 'keys/key.pem'
 });
 
