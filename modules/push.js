@@ -26,7 +26,5 @@ users.forEach(function(user) {
     service.send(notification, user.devices).failed(function(result) {
         console.log('Failed: ' + result.length);
         console.log(result.failed);
-    }).sent(function(result) {
-        console.log('Sent: ' + result.length);
     });
 });
