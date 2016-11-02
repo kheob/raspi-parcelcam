@@ -23,5 +23,10 @@ users.forEach(function(user) {
     notification.alert = 'Looks like you got a delivery!';
 
     // Send the notifcation to all the user's devices
-    service.send(notification, user.devices);
+    service.send(notification, user.devices).failed(function(result) {
+        console.log('Failed: ' + result.length);
+        console.log(result.failed);
+    }).sent(function(result) {
+        console.log('Sent: ' + result.length);
+    });
 });
