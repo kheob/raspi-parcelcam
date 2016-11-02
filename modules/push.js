@@ -23,8 +23,9 @@ users.forEach(function(user) {
     notification.alert = 'Looks like you got a delivery!';
 
     // Send the notifcation to all the user's devices
-    service.send(notification, user.devices).failed(function(result) {
-        console.log('Failed: ' + result.length);
+    service.send(notification, user.devices).then( result => {
+        console.log("sent:", result.sent.length);
+        console.log("failed:", result.failed.length);
         console.log(result.failed);
     });
 });
