@@ -23,7 +23,7 @@ Device.find({}, function(err, devices) {
     }
 
     devices.forEach(function(device) {
-        console.log(device);
+        console.log(device.deviceID);
         deviceIDs.push(device.deviceID);
     });
 });
