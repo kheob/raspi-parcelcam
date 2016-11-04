@@ -7,12 +7,13 @@
 
 var express = require('express');
 var router = express.Router();
+var bodyParser = require('body-parser'); // https://github.com/expressjs/body-parser
 
 // Model for the photo object
 var Device = require('../models/device');
 
 // Submit a device ID
-router.post('/', function(req, res) {
+router.post('/', bodyParser.json(), function(req, res) {
     // Get the ID
     var id = req.body.deviceID;
 

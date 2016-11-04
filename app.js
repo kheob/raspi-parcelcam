@@ -7,7 +7,6 @@
 
 // Dependencies
 var express = require('express'); // http://expressjs.com/
-var bodyParser = require('body-parser'); // https://github.com/expressjs/body-parser
 var child_process = require('child_process');
 var cors = require('cors'); // https://github.com/expressjs/cors
 
@@ -16,9 +15,6 @@ require('./modules/camera');
 require('./modules/database');
 
 var app = express();
-
-// Enable body parsing
-app.use(bodyParser.json());
 
 // Enable CORS
 app.use(cors());
