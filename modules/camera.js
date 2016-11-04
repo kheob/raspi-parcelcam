@@ -13,6 +13,9 @@ var Photo = require('../models/photo');
 // PIR sensor
 var pir = new Gpio(18, 'in', 'both');
 
+// Push notifications
+var push = require('./push');
+
 // Watch the GPIO for a high value from the PIR sensor
 // Adapted from http://thejackalofjavascript.com/rpi-pir-sensor-node-iot-intruder-alert/
 pir.watch(function(err, value) {
@@ -23,7 +26,7 @@ pir.watch(function(err, value) {
     // Movement is detected
     if (value == 1) {
         takePhoto();
-        require('./push');
+        push.send();
     }
 });
 
