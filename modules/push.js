@@ -22,9 +22,8 @@ Device.find({}, function(err, devices) {
         return res.status(500).json({message: err.message});
     }
 
-    console.log(devices);
-
     devices.forEach(function(device) {
+        console.log(device);
         deviceIDs.push(device.deviceID);
     });
 });
