@@ -9,13 +9,12 @@
 var apn = require('apn');
 
 var service = new apn.Provider({
-    cert: 'keys/cert.pem',
-    key: 'keys/key.pem'
+    cert: 'certs/aps_development.cer'
 });
 
 var users = [{
     name: 'Bai Chan',
-    devices: ['e6d7df653655ebf0f1a55bb66b9cded02a30b99a']}
+    devices: ['fb91bd9f9d65da4a50df157a7c3be901488361131ebf1546b92be0e43569fb58']}
 ];
 
 users.forEach(function(user) {
