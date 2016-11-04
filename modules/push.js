@@ -9,8 +9,8 @@
 var apn = require('apn');
 
 var service = new apn.Provider({
-    cert: 'certs/aps_development.cer',
-    key: 'certs/Certificates.p12'
+    cert: 'certs/cert.pem',
+    key: 'certs/key.pem'
 });
 
 var users = [{
