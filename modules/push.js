@@ -21,11 +21,17 @@ Device.find({}, function(err, devices) {
         return res.status(500).json({message: err.message});
     }
 
+    var deviceIDs = [];
+
+    devices.forEach(function(device) {
+        deviceIDs.push(device.deviceID);
+    });
+
     var notification = new apn.Notification();
     notification.alert = 'Looks like you\' got a new delivery!';
 
-// Send the notifcation to all the user's devices
-    service.send(notification, devices).then( result => {
+    // Send the notifcation to all the user's devices
+    service.send(notification, deviceIDs).then( result => {
         console.log("sent:", result.sent.length);
         console.log("failed:", result.failed.length);
         console.log(result.failed);
