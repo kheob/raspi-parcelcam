@@ -9,8 +9,8 @@
 var apn = require('apn');
 
 var service = new apn.Provider({
-    cert: 'certs/cert.pem',
-    key: 'certs/key.pem'
+    cert: 'certs/YGMCert.pem',
+    key: 'certs/YGMKey.pem'
 });
 
 // Get all devices and send a PN to each
