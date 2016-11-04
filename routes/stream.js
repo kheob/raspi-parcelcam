@@ -15,9 +15,6 @@ router.get('/', function(req, res) {
     var start = req.query.start;
 
     if (start === 'true') {
-        // Kill any running processes
-        child_process.spawn('pkill', ['-f', 'raspistill']);
-
         // Start the camera (Uses MJPG-Streamer adapted from: https://blog.miguelgrinberg.com/post/how-to-build-and-run-mjpg-streamer-on-the-raspberry-pi)
         var args = ['--nopreview', '-w', '320', '-h', '240', '-q', '20', '-o', 'stream/stream.jpg', '-tl', '100', '-t', '9999999', '-th', '0:0:0'];
         child_process.spawn('raspistill', args);
