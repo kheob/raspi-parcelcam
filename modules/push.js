@@ -13,19 +13,25 @@ var service = new apn.Provider({
     key: 'certs/key.pem'
 });
 
-var users = [{
-    name: 'Bai Chan',
-    devices: ['fb91bd9f9d65da4a50df157a7c3be901488361131ebf1546b92be0e43569fb58']}
-];
+// Get all devices
+var Device = require('../models/device');
+var deviceIDs = [];
 
-users.forEach(function(user) {
-    var notification = new apn.Notification();
-    notification.alert = 'Looks like you got a delivery!';
-
-    // Send the notifcation to all the user's devices
-    service.send(notification, user.devices).then( result => {
-        console.log("sent:", result.sent.length);
-        console.log("failed:", result.failed.length);
-        console.log(result.failed);
+Device.find({}, function(err, devices) {
+    if (err) {
+        return res.status(500).json({message: err.message});
+    }
+    devices.forEach(function(device) {
+        deviceIDs.push(device.deviceID);
     });
+});
+
+var notification = new apn.Notification();
+notification.alert = 'Looks like you\' got a new delivery!';
+
+// Send the notifcation to all the user's devices
+service.send(notification, deviceIDs).then( result => {
+    console.log("sent:", result.sent.length);
+    console.log("failed:", result.failed.length);
+    console.log(result.failed);
 });
