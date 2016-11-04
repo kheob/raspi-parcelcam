@@ -18,14 +18,19 @@ router.post('/', bodyParser.json(), function(req, res) {
     // Get the ID
     var id = req.body.deviceID;
 
-    // Add to database
-    Device.create({deviceID: id}, function(err) {
-        if (err) {
-            return res.status(500).json({message: err.message});
-        }
+    if (id != null) {
+        // Add to database
+        Device.create({deviceID: id}, function(err) {
+            if (err) {
+                return res.status(500).json({message: err.message});
+            }
+            // Send response
+            res.json({message: 'Success! Device added to push notifications.'});
+        });
+    } else {
         // Send response
-        res.json({message: 'Success! Device added to push notifications.'})
-    });
+        res.json({message: 'Error submitting device ID.'});
+    }
 });
 
 // Returns all device IDs
