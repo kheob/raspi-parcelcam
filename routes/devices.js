@@ -34,7 +34,6 @@ router.get('/', function(req, res) {
         }
         res.json({devices: devices});
     });
-    res.send('hi');
 });
 
 module.exports = router;
