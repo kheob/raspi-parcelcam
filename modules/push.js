@@ -23,6 +23,7 @@ var send = function() {
             return res.status(500).json({message: err.message});
         }
 
+        // List of all device IDs
         var deviceIDs = [];
 
         devices.forEach(function(device) {
