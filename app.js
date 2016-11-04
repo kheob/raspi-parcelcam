@@ -7,6 +7,7 @@
 
 // Dependencies
 var express = require('express'); // http://expressjs.com/
+var bodyParser = require('body-parser'); // https://github.com/expressjs/body-parser
 var child_process = require('child_process');
 var cors = require('cors'); // https://github.com/expressjs/cors
 
@@ -15,6 +16,9 @@ require('./modules/camera');
 require('./modules/database');
 
 var app = express();
+
+// Enable body parsing
+app.use(bodyParser.json);
 
 // Enable CORS
 app.use(cors());
@@ -25,6 +29,7 @@ app.use('/public', express.static(__dirname + '/public'));
 // Routes
 app.use('/photos', require('./routes/photos'));
 app.use('/stream', require('./routes/stream'));
+app.use('/devices', require('./routes/devices'));
 
 // Start the server
 app.listen(3000, function() {

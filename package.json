@@ -18,6 +18,7 @@
   "homepage": "https://github.com/kheob/raspi-parcelcam#readme",
   "dependencies": {
     "apn": "^2.1.1",
+    "body-parser": "^1.15.2",
     "cors": "^2.8.1",
     "epoll": "^0.1.20",
     "express": "^4.14.0",
