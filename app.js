@@ -29,7 +29,7 @@ app.use('/public', express.static(__dirname + '/public'));
 // Routes
 app.use('/photos', require('./routes/photos'));
 app.use('/stream', require('./routes/stream'));
-app.use('/devices', require('./routes/devices'));
+// app.use('/devices', require('./routes/devices'));
 
 // Start the server
 app.listen(3000, function() {
