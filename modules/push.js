@@ -28,7 +28,7 @@ Device.find({}, function(err, devices) {
     });
 
     var notification = new apn.Notification();
-    notification.alert = 'Looks like you\' got a new delivery!';
+    notification.alert = "Looks like you've got a new delivery!";
 
     // Send the notifcation to all the user's devices
     service.send(notification, deviceIDs).then( result => {
