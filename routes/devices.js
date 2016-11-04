@@ -19,13 +19,23 @@ router.post('/', bodyParser.json(), function(req, res) {
     var id = req.body.deviceID;
 
     if (id != null) {
-        // Add to database
-        Device.create({deviceID: id}, function(err) {
+        // Check if ID already stored
+        Device.find({deviceID: id}, function(err, devices) {
             if (err) {
                 return res.status(500).json({message: err.message});
             }
-            // Send response
-            res.json({message: 'Success! Device added to push notifications.'});
+            if (devices.length === 1) {
+                res.json({message: 'Device ID already in system.'});
+            } else {
+                // Add to database
+                Device.create({deviceID: id}, function(err) {
+                    if (err) {
+                        return res.status(500).json({message: err.message});
+                    }
+                    // Send response
+                    res.json({message: 'Success! Device added to push notifications.'});
+                });
+            }
         });
     } else {
         // Send response
