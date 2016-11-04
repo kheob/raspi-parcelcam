@@ -26,6 +26,8 @@ pir.watch(function(err, value) {
     // Movement is detected
     if (value == 1) {
         takePhoto();
+
+        // Send push notification
         push.send();
     }
 });
