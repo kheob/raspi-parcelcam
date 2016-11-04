@@ -13,6 +13,7 @@ var bodyParser = require('body-parser'); // https://github.com/expressjs/body-pa
 var Device = require('../models/device');
 
 // Submit a device ID
+// Accepts JSON {deviceID: <DEVICEID>}
 router.post('/', bodyParser.json(), function(req, res) {
     // Get the ID
     var id = req.body.deviceID;
