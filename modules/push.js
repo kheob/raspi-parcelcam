@@ -21,12 +21,13 @@ Device.find({}, function(err, devices) {
     if (err) {
         return res.status(500).json({message: err.message});
     }
+
+    console.log(devices);
+
     devices.forEach(function(device) {
         deviceIDs.push(device.deviceID);
     });
 });
-
-console.log(deviceIDs);
 
 var notification = new apn.Notification();
 notification.alert = 'Looks like you\' got a new delivery!';
