@@ -26,6 +26,8 @@ Device.find({}, function(err, devices) {
     });
 });
 
+console.log(deviceIDs);
+
 var notification = new apn.Notification();
 notification.alert = 'Looks like you\' got a new delivery!';
 
