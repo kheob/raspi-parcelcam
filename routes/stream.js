@@ -32,12 +32,11 @@ router.get('/', function(req, res) {
 router.get('/status', function(req, res) {
     var child = child_process.spawn('pgrep', ['mjpg_streamer']);
     child.stdout.on('data', function(data) {
-        // Online if data received, else offline
-        if (data.length > 0) {
-            res.json({message: "Stream online."});
-        } else {
-            res.json({error: "Stream offline."});
-        }
+        // Online if data received
+        res.json({message: "Stream online."});
+    });
+    child.on('exit', function() {
+        res.json({error: "Stream offline."});
     });
 });
 
