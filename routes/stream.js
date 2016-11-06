@@ -31,7 +31,7 @@ router.get('/', function(req, res) {
 // Get status of the MJPG streamer process
 router.get('/status', function(req, res) {
     var child = child_process.spawn('pgrep', ['mjpg_streamer']);
-    child.stdout.on('data', function() {
+    child.stdout.on('data', function(data) {
         if (data !== null) {
             res.json({message: "Stream online"});
         } else {
