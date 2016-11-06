@@ -46,6 +46,8 @@ router.get('/kill', function(req, res) {
     // Get PID of the stream
     var pidProcess = child_process.spawn('pgrep', ['mjpg_streamer']);
     pidProcess.stdout.on('data', function(data) {
+        console.log(data);
+
         var child = child_process.spawn('kill', [data]);
         child.on('exit', function() {
             res.json({message: "Stream killed."});
