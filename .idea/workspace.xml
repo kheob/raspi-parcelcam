@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6b377b86-43fd-42d0-a2d3-3bc54b450d1c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/camera.js" afterPath="$PROJECT_DIR$/modules/camera.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/stream.js" afterPath="$PROJECT_DIR$/routes/stream.js" />
     </list>
     <ignored path="raspi-parcelcam.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,11 +38,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="stream.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="stream.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/stream.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="69" selection-start-line="18" selection-start-column="69" selection-end-line="18" selection-end-column="69" />
+            <state relative-caret-position="555">
+              <caret line="37" column="45" selection-start-line="37" selection-start-column="45" selection-end-line="37" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -51,7 +51,7 @@
       <file leaf-file-name="photos.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/photos.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
+            <state relative-caret-position="345">
               <caret line="23" column="7" selection-start-line="18" selection-start-column="4" selection-end-line="23" selection-end-column="7" />
               <folding />
             </state>
@@ -68,7 +68,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="camera.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="camera.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/modules/camera.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="735">
@@ -81,7 +81,7 @@
       <file leaf-file-name="devices.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/devices.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="768">
+            <state relative-caret-position="780">
               <caret line="52" column="7" selection-start-line="47" selection-start-column="4" selection-end-line="52" selection-end-column="7" />
               <folding />
             </state>
@@ -159,9 +159,9 @@
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/routes/devices.js" />
         <option value="$PROJECT_DIR$/modules/push.js" />
-        <option value="$PROJECT_DIR$/routes/stream.js" />
         <option value="$PROJECT_DIR$/stream/index.html" />
         <option value="$PROJECT_DIR$/modules/camera.js" />
+        <option value="$PROJECT_DIR$/routes/stream.js" />
       </list>
     </option>
   </component>
@@ -204,6 +204,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -294,8 +296,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -425,12 +425,16 @@
       <workItem from="1477576850470" duration="7000" />
       <workItem from="1478054488766" duration="2501000" />
       <workItem from="1478071024145" duration="312000" />
-      <workItem from="1478227771874" duration="7816000" />
+      <workItem from="1478227771874" duration="7925000" />
+      <workItem from="1478341888441" duration="17000" />
+      <workItem from="1478342298960" duration="18000" />
+      <workItem from="1478342335992" duration="55000" />
+      <workItem from="1478422917000" duration="613000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63144000" />
+    <option name="totallyTimeSpent" value="63956000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="23" width="1280" height="1347" extended-state="0" />
@@ -439,7 +443,6 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3375695" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988048" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -452,6 +455,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988048" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -483,7 +487,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -525,7 +528,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -559,7 +561,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -646,7 +647,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -654,7 +654,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -668,22 +667,8 @@
     <entry file="file://$PROJECT_DIR$/index.js" />
     <entry file="file://$PROJECT_DIR$/modules/stream.js" />
     <entry file="file://$PROJECT_DIR$/keys/cert.cer" />
-    <entry file="file://$PROJECT_DIR$/keys/cert.pem">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="27" selection-start-line="0" selection-start-column="27" selection-end-line="0" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/keys/key.pem">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/keys/cert.pem" />
+    <entry file="file://$PROJECT_DIR$/keys/key.pem" />
     <entry file="file://$PROJECT_DIR$/models/photo.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -694,46 +679,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/photos.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
+        <state relative-caret-position="345">
           <caret line="23" column="7" selection-start-line="18" selection-start-column="4" selection-end-line="23" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/certs/aps_development.cer">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/certs/Certificates.p12">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#140#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/stream.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="69" selection-start-line="18" selection-start-column="69" selection-end-line="18" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/certs/aps_development.cer" />
+    <entry file="file://$PROJECT_DIR$/certs/Certificates.p12" />
     <entry file="file://$PROJECT_DIR$/stream/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
@@ -752,7 +705,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/devices.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="768">
+        <state relative-caret-position="780">
           <caret line="52" column="7" selection-start-line="47" selection-start-column="4" selection-end-line="52" selection-end-column="7" />
           <folding />
         </state>
@@ -770,6 +723,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="735">
           <caret line="49" column="1" selection-start-line="49" selection-start-column="1" selection-end-line="49" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#140#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/stream.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" column="45" selection-start-line="37" selection-start-column="45" selection-end-line="37" selection-end-column="45" />
           <folding />
         </state>
       </provider>
