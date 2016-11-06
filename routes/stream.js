@@ -36,8 +36,24 @@ router.get('/status', function(req, res) {
         if (code === 0) {
             res.json({message: "Stream online."});
         } else {
-            res.json({error: "Stream offline."});
+            res.json({message: "Stream offline."});
         }
+    });
+});
+
+// Kill the stream
+router.get('/kill', function(req, res) {
+    var child = child_process.spawn('kill', ['`pgrep', 'mjpg_streamer`']);
+    child.on('exit', function() {
+        res.json({message: "Stream killed."});
+    });
+});
+
+// Start the stream
+router.get('/start', function(req, res) {
+    var child = child_process.spawn('mjpg_streamer', ['-i', 'input_file.so -f stream -n stream.jpg', '-o', 'output_http.so -p 8090 -w stream']);
+    child.on('exit', function() {
+        res.json({message: "Stream started."});
     });
 });
 
