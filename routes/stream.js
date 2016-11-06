@@ -41,26 +41,4 @@ router.get('/status', function(req, res) {
     });
 });
 
-// Kill the stream
-router.get('/kill', function(req, res) {
-    // Get PID of the stream
-    var pidProcess = child_process.spawn('pgrep', ['mjpg_streamer']);
-    pidProcess.stdout.on('data', function(data) {
-        console.log(data);
-
-        var child = child_process.spawn('kill', [data]);
-        child.on('exit', function() {
-            res.json({message: "Stream killed."});
-        });
-    });
-});
-
-// Start the stream
-router.get('/start', function(req, res) {
-    var child = child_process.spawn('mjpg_streamer', ['-i', 'input_file.so -f stream -n stream.jpg', '-o', 'output_http.so -p 8090 -w stream']);
-    child.on('exit', function() {
-        res.json({message: "Stream started."});
-    });
-});
-
 module.exports = router;
