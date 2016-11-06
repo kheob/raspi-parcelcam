@@ -37,7 +37,7 @@ router.get('/status', function(req, res) {
     });
 
     // Online if data received, else offline
-    if (status) {
+    if (status.length > 0) {
         res.json({message: "Stream online."});
     } else {
         res.json({error: "Stream offline."});
