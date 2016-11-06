@@ -31,12 +31,13 @@ router.get('/', function(req, res) {
 // Get status of the MJPG streamer process
 router.get('/status', function(req, res) {
     var child = child_process.spawn('pgrep', ['mjpg_streamer']);
-    child.stdout.on('data', function(data) {
-        // Online if data received
-        res.json({message: "Stream online."});
-    });
-    child.on('exit', function() {
-        res.json({error: "Stream offline."});
+    child.on('exit', function(code) {
+        // Determine if the process is running out not via exit code
+        if (code === 0) {
+            res.json({message: "Stream online."});
+        } else {
+            res.json({error: "Stream offline."});
+        }
     });
 });
 
